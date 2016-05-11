@@ -60,7 +60,6 @@ class Cloud extends GameObject
     ellipse(-30, 0, 10, 10);
     ellipse(30, 0, 10, 10);
     noStroke();
-    println(pos.x);
     popMatrix();
   }
 }

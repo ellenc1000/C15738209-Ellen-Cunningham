@@ -1,4 +1,4 @@
-class GameObject 
+class GameObject
 {
   PVector pos;
   PVector forward;
@@ -8,21 +8,28 @@ class GameObject
   float speed = 5.0f;
   color c; 
   PVector velocity;
-
+  
   GameObject(float x, float y)
   {
     pos = new PVector(x, y);
     theta = 0;
     forward = new PVector(0, -1);
-    w = 50.0f;
-    halfW = w / 2;
+    velocity = new PVector(0, 0);
+    w = 50;
+    halfW = w * 0.5f;
+    theta = 0.0f;
   }
   
-  void update()
+  GameObject()
+  {
+    this(width / 2, height / 2);
+  } 
+  
+  public void update()
   {
   }
   
-  void render()
+  public void render()
   {
   }
   

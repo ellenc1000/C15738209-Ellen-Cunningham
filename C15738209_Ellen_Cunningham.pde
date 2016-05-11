@@ -14,6 +14,7 @@ void keyReleased()
 }
 
 Plane plane;
+Person person;
 
 ArrayList<Cloud> clouds = new ArrayList<Cloud>();
 
@@ -23,6 +24,7 @@ void setup()
   background (0, 100, 255);//sky
 
   plane = new Plane(0, 120);
+  person = new Person(20, 500);
 
   for (int i = 0; i < 5; i ++)
   {
@@ -47,19 +49,22 @@ void draw()
     cloud.update();
     cloud.render();
   }
-  
-   for (int i = bombs.size() -1 ; i >= 0  ; i --)
+
+  for (int i = bombs.size () -1; i >= 0; i --)
   {
     Bomb b = bombs.get(i);
     b.update();
     b.render();    
-//    if (PVector.dist(b.pos, aiShip.pos) < aiShip.halfW)
-//    {
-//      aiShip.health --;
-//    }
+    //    if (PVector.dist(b.pos, aiShip.pos) < aiShip.halfW)
+    //    {
+    //      aiShip.health --;
+    //    }
   }
 
   plane.update();
   plane.render();
+  
+  person.render();
+  person.update();
 }
 
