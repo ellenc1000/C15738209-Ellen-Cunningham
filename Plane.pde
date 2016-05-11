@@ -23,14 +23,15 @@ class Plane extends GameObject
       pos.x = -200;
     }
     
-     if (keys[' '] & bombDrop == false)
+     if (keys[' '] & bombDrop == false)//drop bomb
     {
-      bombDrop = true;
+      
       PVector bombPos = pos.get();
       bombPos.add(PVector.mult(forward, 0));
       Bomb b = new Bomb(bombPos.x, bombPos.y);
       bombs.add(b);
       bombExists = true; 
+      bombDrop = true;
     }
    
   }

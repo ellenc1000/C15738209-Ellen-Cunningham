@@ -6,7 +6,6 @@ class GameObject
   float w;
   float halfW;
   float speed = 5.0f;
-  color c; 
   PVector velocity;
   
   GameObject(float x, float y)
@@ -19,11 +18,6 @@ class GameObject
     halfW = w * 0.5f;
     theta = 0.0f;
   }
-  
-  GameObject()
-  {
-    this(width / 2, height / 2);
-  } 
   
   public void update()
   {
