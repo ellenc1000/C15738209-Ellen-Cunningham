@@ -23,6 +23,15 @@ class Plane extends GameObject
     {
       pos.x = -200;
     }
+    
+     if (keys[' '] & bombDrop == false)
+    {
+      PVector bombPos = pos.get();
+      bombPos.add(PVector.mult(forward, 30)); // Start the bullet 30 units in front of the player
+      Bomb b = new Bomb(bombPos.x, bombPos.y);
+      bombs.add(b);
+      bombDrop = true;
+    }
   }
 
   void render ()

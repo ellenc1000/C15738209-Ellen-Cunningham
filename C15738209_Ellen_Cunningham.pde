@@ -1,4 +1,18 @@
 //Ellen Cunningham C15738209 - Exam 
+
+boolean bombDrop = false;
+boolean[] keys = new boolean[512];
+
+void keyPressed()
+{
+  keys[keyCode] = true;
+}
+
+void keyReleased()
+{
+  keys[keyCode] = false;
+}
+
 Plane plane;
 
 ArrayList<Cloud> clouds = new ArrayList<Cloud>();
@@ -17,6 +31,8 @@ void setup()
   }
 }
 
+ArrayList<Bomb> bombs = new ArrayList<Bomb>(); 
+
 void draw()
 {
   background (0, 100, 255);//sky
@@ -30,6 +46,17 @@ void draw()
     Cloud cloud = clouds.get(i);
     cloud.update();
     cloud.render();
+  }
+  
+   for (int i = bombs.size() -1 ; i >= 0  ; i --)
+  {
+    Bomb b = bombs.get(i);
+    b.update();
+    b.render();    
+//    if (PVector.dist(b.pos, aiShip.pos) < aiShip.halfW)
+//    {
+//      aiShip.health --;
+//    }
   }
 
   plane.update();
