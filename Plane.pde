@@ -34,11 +34,11 @@ class Plane extends GameObject
     fill(100, 100, 100);
 
     rect(0, 0, 150, 20);//main body
-    rect(60, -30, 30, 100);//wings
+    rect(60, -30, 30, 90);//wings
     triangle(0, 20, 50, 20, 0, -20);//back of plane
     triangle(150, 0, 150, 20, 170, 20);//nose
     fill(0);
-    ellipse(45, 10, 5, 8);
+    ellipse(45, 10, 5, 8);//windows
     ellipse(55, 10, 5, 8);
     ellipse(65, 10, 5, 8);
     ellipse(75, 10, 5, 8);
