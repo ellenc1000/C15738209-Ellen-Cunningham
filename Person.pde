@@ -8,11 +8,18 @@ class Person extends GameObject
 
   void update()
   {
-    theta = PI;
+    theta = HALF_PI;
 
-    //    forward.x = sin(theta);
-    //    forward.y = - cos(theta);
-    //    pos.add(forward);
+    if (getBomb && bombDrop == true)//when to move
+    {
+      forward.x = sin(theta);
+      forward.y = - cos(theta);
+      pos.add(forward);
+    } else if ((pos.x > 20)&& getBomb ==false)//return to original position 
+    {
+      pos.sub(forward);
+      bombDrop = false;
+    }
   }
 
   void render()

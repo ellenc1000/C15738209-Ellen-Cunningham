@@ -1,7 +1,12 @@
 class Bomb extends GameObject
 { 
 
-  float speed = 10.0f;
+  float speed = 10.0f; 
+  PVector acc;
+  float deltaTime = 1.0f / 60.0f;
+  PVector force;
+  float mass;
+  float gravity = 80;
 
   Bomb(float x, float y)
   {
@@ -10,22 +15,22 @@ class Bomb extends GameObject
 
   void update()
   {
-    theta = PI;
 
-if((pos.y < 370))
-{
-    forward.x = sin(theta);
-    forward.y = - cos(theta);
-    pos.add(forward); 
-}
+    theta = PI - QUARTER_PI/12;//direction of drop
 
     forward.x = sin(theta);
     forward.y = -cos(theta);
-    velocity.x = forward.x;
-   //velocity.y = forward.y;    
-    velocity.mult(speed);    
-    pos.add(velocity);
-  
+    velocity.x = forward.x; 
+    velocity.mult(speed); 
+
+    if ((pos.y < 500))//stop when reach certain height
+    {
+      pos.add(forward);
+      pos.add(velocity);
+    } else
+    {
+      getBomb =true;//tell person to go
+    }
   }
 
   void render()

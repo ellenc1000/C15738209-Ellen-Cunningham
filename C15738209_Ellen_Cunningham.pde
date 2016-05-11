@@ -1,6 +1,10 @@
 //Ellen Cunningham C15738209 - Exam 
 
 boolean bombDrop = false;
+boolean getBomb = false;
+boolean remove = false;
+boolean bombExists = false;
+
 boolean[] keys = new boolean[512];
 
 void keyPressed()
@@ -15,6 +19,7 @@ void keyReleased()
 
 Plane plane;
 Person person;
+
 
 ArrayList<Cloud> clouds = new ArrayList<Cloud>();
 
@@ -33,7 +38,7 @@ void setup()
   }
 }
 
-ArrayList<Bomb> bombs = new ArrayList<Bomb>(); 
+ArrayList<Bomb> bombs = new ArrayList<Bomb>(1); 
 
 void draw()
 {
@@ -49,22 +54,42 @@ void draw()
     cloud.update();
     cloud.render();
   }
-
+  
   for (int i = bombs.size () -1; i >= 0; i --)
   {
     Bomb b = bombs.get(i);
-    b.update();
-    b.render();    
-    //    if (PVector.dist(b.pos, aiShip.pos) < aiShip.halfW)
-    //    {
-    //      aiShip.health --;
-    //    }
+    if (bombDrop)
+    {
+      b.update();
+      b.render();
+    }
+    if (bombExists)
+    {
+      if (PVector.dist(b.pos, person.pos) < person.halfW)
+      {
+        bombExists = false;
+        getBomb=false;
+        //bombs.remove(this);
+        bombDrop = false;
+        bombs.remove(i);
+      }
+      
+      if(bombs.size() > 1)
+      {
+      bombs.remove(i);
+      }
+    }
   }
 
   plane.update();
   plane.render();
-  
+
   person.render();
   person.update();
+
+  println("bombDrop = " + bombDrop);
+  println("getBomb = " + getBomb);
+  println("bombExists = " + bombExists);
+  println("bombs = " + bombs.size());
 }
 
