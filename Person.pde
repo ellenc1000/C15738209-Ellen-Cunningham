@@ -25,6 +25,7 @@ class Person extends GameObject
   void render()
   {
     pushMatrix();
+    
     translate(pos.x, pos.y);
     stroke(255, 0, 255);
     fill(255);
@@ -35,6 +36,7 @@ class Person extends GameObject
     line(-10, 10, -15, 40);//right arm
     line(10, 10, 15, 40);//left arm
     noStroke();
+    
     popMatrix();
   }
 }

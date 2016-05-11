@@ -18,8 +18,8 @@ void keyReleased()
 }
 
 Plane plane;
-Person person;
 
+Person person;
 
 ArrayList<Cloud> clouds = new ArrayList<Cloud>();
 

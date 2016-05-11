@@ -1,6 +1,5 @@
 class Cloud extends GameObject
 {
-
   float theta;
 
   float w, halfW;
@@ -50,6 +49,7 @@ class Cloud extends GameObject
   {
 
     pushMatrix();
+    
     translate(pos.x, pos.y);
     fill(255);
     stroke(0, 0, 255);
@@ -60,6 +60,7 @@ class Cloud extends GameObject
     ellipse(-30, 0, 10, 10);
     ellipse(30, 0, 10, 10);
     noStroke();
+    
     popMatrix();
   }
 }

@@ -1,13 +1,5 @@
 class Bomb extends GameObject
 { 
-
-  float speed = 10.0f; 
-  PVector acc;
-  float deltaTime = 1.0f / 60.0f;
-  PVector force;
-  float mass;
-  float gravity = 80;
-
   Bomb(float x, float y)
   {
     super(x, y);
@@ -36,6 +28,7 @@ class Bomb extends GameObject
   void render()
   {
     pushMatrix();
+    
     translate(pos.x, pos.y);
     fill(255, 0, 0);
     stroke(255, 0, 100);
@@ -43,6 +36,7 @@ class Bomb extends GameObject
     fill(0);
     noStroke();
     println(pos.y);
+    
     popMatrix();
   }
 }

@@ -1,7 +1,6 @@
 
 class Plane extends GameObject
 { 
-  float speed = 10.0f;
 
   Plane (float x, float y)
   {
@@ -41,9 +40,7 @@ class Plane extends GameObject
     pushMatrix();
 
     translate(pos.x, pos.y);
-
     fill(100, 100, 100);
-
     rect(0, 0, 150, 20);//main body
     rect(60, -30, 30, 90);//wings
     triangle(0, 20, 50, 20, 0, -20);//back of plane
@@ -57,9 +54,6 @@ class Plane extends GameObject
     ellipse(95, 10, 5, 8);
     ellipse(105, 10, 5, 8);
     ellipse(115, 10, 5, 8);
-
-
-    //println(pos.x);
 
     popMatrix();
   }
